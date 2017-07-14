@@ -10,4 +10,14 @@ def grid_values(grid):
         - keys: Box labels, e.g. 'A1'
         - values: Value in corresponding box, e.g. '8', or '.' if it is empty.
     """
-    pass
+    new_dict = dict(zip(boxes,grid))
+    display(new_dict)
+
+def main():
+    puzzle = '..3.2.6..9..3.5..1..18.64....81.29..7.......8..67.82....26.95..8..2.3..9..5.1.3..' 
+    grid_values(puzzle)
+
+
+# This is the standard boilerplate that calls the main() function.
+if __name__ == '__main__':
+  main()
