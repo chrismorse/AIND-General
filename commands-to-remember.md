@@ -1,17 +1,17 @@
 
--- list environments
+### list environments
 conda env list
 
--- enter an environment
+### enter an environment
 source activate aind
 
--- leave an environment
+### leave an environment
 source deactivate aind
 
--- create an environment example
+### create an environment example
 conda create -n py3 python=3
 
--- expoprt environment
+### expoprt environment
 conda env export > environment.yaml
 
 
