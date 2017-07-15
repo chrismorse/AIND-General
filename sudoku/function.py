@@ -80,3 +80,71 @@ def main():
 # This is the standard boilerplate that calls the main() function.
 if __name__ == '__main__':
     main()
+
+
+
+
+'''
+5. Strategy 1: Elimination
+
+
+from utils import *
+
+def eliminate(values):
+    """Eliminate values from peers of each box with a single value.
+
+    Go through all the boxes, and whenever there is a box with a single value,
+    eliminate this value from the set of values of all its peers.
+
+    Args:
+        values: Sudoku in dictionary form.
+    Returns:
+        Resulting Sudoku in dictionary form after eliminating values.
+    """
+    for boxkey,boxvalue in values.items():
+        #printBreak()
+
+        
+        if len(boxvalue) == 1 :
+            #print("boxkey -> " + boxkey)
+            #print("boxvalue -> " + boxvalue) 
+            row_units_to_check = row_units[rowIndex(boxkey)]
+            column_units_to_check = column_units[colIndex(boxkey)]
+            square_units_to_check = square_units[squareIndex(boxkey)]
+
+            units_to_check = row_units_to_check + column_units_to_check + square_units_to_check
+            #print(units_to_check)
+
+            for peerunit in units_to_check:
+                if boxkey != peerunit:
+                    #print("peerunit -> " + peerunit) 
+                    #print("values[peerunit] -> " + values[peerunit])
+                    values[peerunit] = values[peerunit].replace(boxvalue,"")
+                    #print("values[peerunit] -> " + values[peerunit])
+                    
+                    
+                #if answer_dict[val] in key and :
+                    
+                    #newVals.remove(answer_dict[val])         
+
+            #newValList = ''.join(newVals)
+            #answer_dict[key] = newValList
+
+
+        
+    return(values)    
+
+def printBreak():
+    print("-"*50)
+
+def rowIndex(box):
+    return list(rows).index(box[0])
+
+def colIndex(box):
+    return list(cols).index(box[1])
+
+def squareIndex(box):
+    for key in square_units:
+        if box in key:
+            return(list(square_units).index(key))
+'''
